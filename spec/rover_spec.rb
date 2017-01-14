@@ -17,12 +17,41 @@ RSpec.describe Rover do
 		expect(result).to eq(:north)
 	end
 
-	it "move fowards" do
+	xit "move fowards" do
 		rover = Rover.new
 
 		rover.execute(:f)
 		result = rover.broadcast_position
 
+		expect(result).to eq([0, 1])
+	end
+
+	xit "move backwards" do
+		rover = Rover.new
+
+		rover.execute(:b)
+		result = rover.broadcast_position
+
+		expect(result).to eq([0, -1])
+	end
+
+	xit "rotates to the right" do
+		rover = Rover.new
+
+		rover.execute(:r)
+		rover.execute(:f)
+		result = rover.broadcast_position
+
 		expect(result).to eq([1, 0])
+	end
+
+	xit "rotates to te left" do
+		rover = Rover.new
+
+		rover.execute(:l)
+		rover.execute(:f)
+		result = rover.broadcast_position
+
+		expect(result).to be([-1, 0])
 	end
 end
